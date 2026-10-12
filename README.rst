@@ -1,4 +1,104 @@
 ==================================
+CESM3-MLe
+==================================
+
+A shared development fork of `CESM3 <https://github.com/ESCOMP/CESM>`_ for building and testing **machine-learning parameterizations** (CESM-MLe). Developers across groups open PRs here so ML work lives in one place and can be merged back to the NCAR/ESCOMP repositories later.
+
+Base versions
+-------------
+
+.. list-table::
+   :header-rows: 1
+
+   * - Repo
+     - Fork
+     - Branched from
+   * - CESM (this repo)
+     - ``leap-stc/CESM3-MLe``
+     - ``cesm3_0_alpha09e``
+   * - CAM (``components/cam``)
+     - ``leap-stc/CAM``
+     - ``cam6_4_186``
+   * - CTSM (``components/clm``)
+     - ``leap-stc/CTSM``
+     - ``ctsm5.4.042``
+
+All other components (CIME, ccs_config_cesm, MOM6, CICE, etc.) still come from their upstream repositories. Only the components above are redirected to leap-stc.
+
+How the repo is organized
+-------------------------
+
+- ``mle-dev`` is the shared, protected integration branch (and the default branch). It always holds the agreed ML-enabled state. **Never commit to it directly.** Changes arrive by PR.
+- ``main`` mirrors upstream ESCOMP and is not used for development.
+- All contributions come in via **PRs** from **your own fork** of the repo you are changing.
+
+Getting started
+---------------
+
+.. code-block:: bash
+
+   git clone https://github.com/leap-stc/CESM3-MLe.git
+   cd CESM3-MLe
+   git branch --show-current          # should print mle-dev
+   ./bin/git-fleximod update
+
+``git-fleximod`` reads ``.gitmodules`` and fetches CAM from ``leap-stc/CAM`` and CLM from ``leap-stc/CTSM`` at the pinned ``fxtag``. Components are checked out in **detached HEAD** at that tag.
+
+Verify:
+
+.. code-block:: bash
+
+   ./bin/git-fleximod test
+   cd components/cam && git remote -v   # origin should be leap-stc/CAM
+
+Cloning is read-only and needs no credentials. Pushing requires membership in the LEAP developer team and an SSH key or personal access token on your machine.
+
+Contributing a change (e.g., a new ML parameterization in CAM)
+--------------------------------------------------------
+
+The example below modifies CAM. For CTSM, use ``leap-stc/CTSM`` and ``components/clm``.
+
+1. **Fork the component repo.** On GitHub, open ``leap-stc/CAM`` and click **Fork** to create ``<your-username>/CAM``.
+ 
+2. **Add your fork as a remote** inside the component:
+ 
+   .. code-block:: bash
+ 
+      cd components/cam
+      git remote add myfork https://github.com/<your-username>/CAM.git
+      # or SSH: git@github.com:<your-username>/CAM.git
+ 
+3. **Create a feature branch from** ``mle-dev``:
+ 
+   .. code-block:: bash
+ 
+      git fetch origin
+      git checkout -b yourname/my-ml-param origin/mle-dev
+ 
+4. **Develop and test.** Follow CAM's / CTSM's own testing and ChangeLog conventions, since this is what makes upstreaming possible.
+ 
+5. **Commit and push to your fork:**
+ 
+   .. code-block:: bash
+ 
+      git push -u myfork yourname/my-ml-param
+ 
+6. **Open a pull request** on GitHub from ``<your-username>/CAM`` ``yourname/my-ml-param`` into ``leap-stc/CAM`` ``mle-dev``. Check the base repository and base branch on the PR page before submitting. Describe the change, the tests you ran, and any new namelist variables, build requirements, or external libraries.
+ 
+7. **Review.** Maintainers will review and may request changes. Push further commits to the same branch and the PR updates automatically.
+ 
+.. warning::
+ 
+   ``./bin/git-fleximod update`` resets each component to the pinned ``fxtag``. Commit and push your work before running it.
+
+
+Contacts
+--------
+
+Maintainers: *<Linnia Hawkins / Addisu Semie / LEAP integration team>*
+
+
+==================================
  The Community Earth System Model
 ==================================
 
