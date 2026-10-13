@@ -5,7 +5,7 @@ CESM3-MLe
 A shared development fork of `CESM3 <https://github.com/ESCOMP/CESM>`_ for building and testing **machine-learning parameterizations** (CESM-MLe). Developers across groups open PRs here so ML work lives in one place and can be merged back to the NCAR/ESCOMP repositories later.
 
 Base versions
--------------
+=============
 
 .. list-table::
    :header-rows: 1
@@ -26,14 +26,14 @@ Base versions
 All other components (CIME, ccs_config_cesm, MOM6, CICE, etc.) still come from their upstream repositories. Only the components above are redirected to leap-stc.
 
 How the repo is organized
--------------------------
+=========================
 
 - ``mle-dev`` is the shared, protected integration branch (and the default branch). It always holds the agreed ML-enabled state. **Never commit to it directly.** Changes arrive by PR.
 - ``main`` mirrors upstream ESCOMP and is not used for development.
 - All contributions come in via **PRs** from **your own fork** of the repo you are changing.
 
 Getting started
----------------
+===============
 
 .. code-block:: bash
 
@@ -54,7 +54,7 @@ Verify:
 Cloning is read-only and needs no credentials. Pushing requires membership in the LEAP developer team and an SSH key or personal access token on your machine.
 
 Contributing a change (e.g., a new ML parameterization in CAM)
---------------------------------------------------------
+==============================================================
 
 The example below modifies CAM. For CTSM, use ``leap-stc/CTSM`` and ``components/clm``.
 
@@ -93,7 +93,7 @@ The example below modifies CAM. For CTSM, use ``leap-stc/CTSM`` and ``components
 
 
 Contacts
---------
+========
 
 Maintainers: *<Linnia Hawkins / Addisu Semie / LEAP integration team>*
 
