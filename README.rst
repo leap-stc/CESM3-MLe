@@ -95,7 +95,7 @@ The example below modifies CAM. For CTSM, use ``leap-stc/CTSM`` and ``components
 Contacts
 ========
 
-Maintainers: *<Linnia Hawkins / Addisu Semie / LEAP integration team>*
+Maintainers: *<Linnia Hawkins @linniahawkins / Addisu Semie / LEAP integration team>*
 
 
 ==================================
