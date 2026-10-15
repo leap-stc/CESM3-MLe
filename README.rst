@@ -22,8 +22,11 @@ Base versions
    * - CTSM (``components/clm``)
      - ``leap-stc/CTSM``
      - ``ctsm5.4.042``
+   * - MOM6 (``components/mom``)
+     - ``leap-stc/MOM6``
+     - ``dev/ncar_260624``
 
-All other components (CIME, ccs_config_cesm, MOM6, CICE, etc.) still come from their upstream repositories. Only the components above are redirected to leap-stc.
+All other components (CIME, ccs_config_cesm, CICE, etc.) still come from their upstream repositories. Only the components above are redirected to leap-stc.
 
 How the repo is organized
 =========================
