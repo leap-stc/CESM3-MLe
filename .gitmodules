@@ -77,10 +77,10 @@
 
 [submodule "mom"]
         path = components/mom
-        url = https://github.com/ESCOMP/MOM_interface
+        url = https://github.com/leap-stc/MOM_interface
         fxDONOTUSEurl = https://github.com/ESCOMP/MOM_interface
         fxrequired = ToplevelRequired
-        fxtag = mi_260625
+        fxtag = mi_260625-mle.1
 
 [submodule "cism"]
         path = components/cism
