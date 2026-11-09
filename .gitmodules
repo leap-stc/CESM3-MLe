@@ -58,7 +58,7 @@
         path = components/cam
         url = https://www.github.com/leap-stc/CAM
         fxDONOTUSEurl = https://www.github.com/ESCOMP/CAM
-        fxtag = cam6_4_186
+        fxtag = c6c83386029ed85996abda36d47e03236d061244
         fxrequired = ToplevelRequired
 
 [submodule "clm"]
